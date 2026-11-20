@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030711" />
+    <meta name="description" content="An interactive Three.js solar system with planets, dwarf planets, moons, small-body populations, comets and spacecraft." />
+    <link rel="icon" href="data:," />
+    <title>Solar System — Interactive 3D Model</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="scene-canvas" aria-label="Interactive 3D solar system"></canvas>
+
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark"><span></span><span></span><span></span></div>
+          <div>
+            <p class="eyebrow">CELESTIAL MECHANICS SIMULATOR</p>
+            <h1>SOLAR <span>SYSTEM</span></h1>
+          </div>
+        </div>
+
+        <div class="status-wrap">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-label">READY</span>
+        </div>
+      </header>
+
+      <section class="instruction-panel">
+        <p class="panel-kicker">INTERACTIVE SOLAR SYSTEM</p>
+        <h2>Explore the whole system.</h2>
+        <p class="instruction-copy">From the inner planets to the distant Oort Cloud: moons, dwarf planets, small bodies, comets and spacecraft are now included.</p>
+        <div class="control-row">
+          <span class="control-key">LMB</span>
+          <span>Drag a planet or star</span>
+        </div>
+        <div class="control-row">
+          <span class="control-key">SUN</span>
+          <span>Move the whole system</span>
+        </div>
+        <div class="control-row">
+          <span class="control-key">DRAG</span>
+          <span>Orbit camera in empty space</span>
+        </div>
+        <div class="control-row">
+          <span class="control-key">WHEEL</span>
+          <span>Zoom through the system</span>
+        </div>
+        <div class="control-row">
+          <span class="control-key">LAYERS</span>
+          <span>Show or hide object groups</span>
+        </div>
+      </section>
+
+      <footer class="bottombar">
+        <div class="scene-coordinate">
+          <span class="coordinate-pulse"></span>
+          <span>SOLAR SYSTEM</span>
+          <span class="separator">/</span>
+          <span class="muted">PLANETS · DWARFS · MOONS · SMALL BODIES · SPACECRAFT</span>
+        </div>
+        <div class="footer-actions">
+          <button id="layers-toggle" type="button" aria-expanded="false" aria-controls="layers-panel">
+            <span class="layers-icon">☷</span>
+            Layers
+          </button>
+          <button id="reset-button" type="button">
+            <span class="reset-icon">↺</span>
+            Reset system
+          </button>
+        </div>
+      </footer>
+
+      <aside id="layers-panel" class="layers-panel" aria-label="Solar system visibility layers">
+        <div class="layers-heading">
+          <div>
+            <p class="panel-kicker">SCENE CONTENTS</p>
+            <h3>Visible layers</h3>
+          </div>
+          <span class="layers-count">8 GROUPS</span>
+        </div>
+        <p id="population-summary" class="population-summary">Loading object catalogue…</p>
+        <label><input type="checkbox" data-layer="dwarfs" checked /><span><b>Dwarf planets</b><small>Ceres, Pluto, Haumea, Makemake, Eris</small></span></label>
+        <label><input type="checkbox" data-layer="moons" checked /><span><b>Moons and moonlets</b><small>27 named satellites + 180 generated moonlets</small></span></label>
+        <label><input type="checkbox" data-layer="asteroids" checked /><span><b>Asteroid populations</b><small>Irregular main belt, scattered near-Earth objects, Trojans, centaurs</small></span></label>
+        <label><input type="checkbox" data-layer="transneptunian" checked /><span><b>Kuiper / scattered / Oort</b><small>Trans-Neptunian and detached objects</small></span></label>
+        <label><input type="checkbox" data-layer="comets" checked /><span><b>Comets</b><small>Moving nuclei and anti-solar tails</small></span></label>
+        <label><input type="checkbox" data-layer="medium" checked /><span><b>Meteoroids / solar wind</b><small>Dust, fragments and moving plasma parcels</small></span></label>
+        <label><input type="checkbox" data-layer="spacecraft" checked /><span><b>Human-made objects</b><small>Voyagers, probes, Hubble, ISS, landers and rovers</small></span></label>
+        <label><input type="checkbox" data-layer="heliosphere" checked /><span><b>Heliosphere / heliopause</b><small>Distant solar-wind boundary</small></span></label>
+      </aside>
+
+      <div class="center-hint" id="center-hint">
+        <span class="hint-mouse">↖</span>
+        <span>Drag any planet or star individually</span>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
