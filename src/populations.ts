@@ -1036,9 +1036,13 @@ export function createExtendedSolarSystem(
     const orbitTrack = new THREE.LineLoop(
       new THREE.BufferGeometry().setFromPoints(orbitPoints),
       new THREE.LineBasicMaterial({
-        color: config.color,
+        // Keep predicted comet paths as subdued reference guides. With seven
+        // highly eccentric ellipses crossing near perihelion, brighter lines
+        // accumulate into a distracting white bundle around the inner system.
+        color: 0x607895,
         transparent: true,
-        opacity: 0.20,
+        opacity: 0.045,
+        depthTest: true,
         depthWrite: false,
       }),
     );
@@ -1411,3 +1415,5 @@ export function createExtendedSolarSystem(
     counts,
   };
 }
+
+[executed on device: prottoy-pc (e2d79a0a-6a9d-46e8-bde9-bb02e51fa3f3)]
