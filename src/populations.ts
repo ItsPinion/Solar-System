@@ -1415,5 +1415,3 @@ export function createExtendedSolarSystem(
     counts,
   };
 }
-
-[executed on device: prottoy-pc (e2d79a0a-6a9d-46e8-bde9-bb02e51fa3f3)]
